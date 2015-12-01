@@ -12,8 +12,8 @@
 			this._index += dt;
 		},
 		render: function (ctx) {
-			ctx.drawImage(resources.get(this.url),
-                          this.pos.x, this.pos.y);
+			ctx.drawImage(resources.get(this.url),this.pos[0], this.pos[1],
+                          this.size[0], this.size[1]);
 		}
 	};
 

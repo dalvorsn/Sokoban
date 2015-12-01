@@ -41,7 +41,7 @@ function init() {
     lastTime = Date.now();
 
     //iniciando o game loop
-    //main();
+    main();
 }
 
 resources.load([
@@ -67,22 +67,44 @@ var terrainPattern;
 //create player
 var player = {
     pos: [0, 0],
-    sprite: new Sprite('images/player/back_stop.png', [0, 0],32,[37, 60])
+    sprite: new Sprite('images/player/front_stop.png', [0, 0],32,[64, 64]),
+    speed: 200
 };
-terrainPattern = ctx.createPattern(resources.get('images/grounds/grass.png'), 'repeat');
-ctx.fillStyle = terrainPattern;
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-player.sprite.update();
-player.sprite.render();
 
 function update(dt) {
     player.sprite.update(dt);
+
+    inputEvent(dt);
 }
 
 function render() {
     ctx.fillStyle = terrainPattern;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.translate(player.pos[0], player.pos[1]);
-    player.sprite.render(ctx);
+    renderEntity(player);
 };
+
+function renderEntity(entity) {
+    ctx.save();
+    ctx.translate(entity.pos[0], entity.pos[1]);
+    entity.sprite.render(ctx);
+    ctx.restore();
+}
+
+function inputEvent(dt) {
+    if(input.isDown('DOWN') || input.isDown('s')) {
+        player.pos[1] += player.speed * dt;
+    }
+
+    if(input.isDown('UP') || input.isDown('w')) {
+        player.pos[1] -= player.speed * dt;
+    }
+
+    if(input.isDown('LEFT') || input.isDown('a')) {
+        player.pos[0] -= player.speed * dt;
+    }
+
+    if(input.isDown('RIGHT') || input.isDown('d')) {
+        player.pos[0] += player.speed * dt;
+    }
+}
