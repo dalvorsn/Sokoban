@@ -1,7 +1,7 @@
 (function () {
 	function Player() {
 		this.pos = [0,0];
-		this.walkDelay = 300;
+		this.walkDelay = 200;
 		this.url = 'images/player.png';
 		this.dir = 0;
 		this.lastTime = 0;
@@ -45,12 +45,14 @@
 					_move = false;
 					break;
 				case Tile.Box:
-					var np = [this.pos[0] + xdif * 2, this.pos[1] + ydif * 2]
-					var nextTile = map[ np[1] ][ np[0] ];
+					var nextTile = map[ this.pos[1] + ydif * 2 ][ this.pos[0] + xdif * 2 ];
+					var baseFront = baseMap[ this.pos[1] + ydif ][ this.pos[0] + xdif ];
 					if(nextTile === Tile.Empty || nextTile === Tile.EndPoint){
-						map[ this.pos[1] + ydif ][ this.pos[0] + xdif ] = Tile.Empty;
-						map[ np[1] ][ np[0] ] = Tile.Box;
-						
+						if(baseFront === Tile.EndPoint)
+							map[ this.pos[1] + ydif ][ this.pos[0] + xdif ] = Tile.EndPoint;
+						else
+							map[ this.pos[1] + ydif ][ this.pos[0] + xdif ] = Tile.Empty;
+						map[ this.pos[1] + ydif * 2 ][ this.pos[0] + xdif * 2 ] = Tile.Box;
 					} else 
 						_move = false;
 					break;

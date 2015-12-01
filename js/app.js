@@ -31,6 +31,7 @@ var Tile = {
     Wall: 1,
     Box: 2,
     EndPoint: 3,
+    Away: 4,
     Start: 5,
 }
 
@@ -51,6 +52,7 @@ function main() {
 };
 
 function init() {
+    terrainPattern = ctx.createPattern(resources.get('images/grass.png'), 'repeat');
 
     lastTime = Date.now();
     main();
@@ -69,8 +71,9 @@ resources.onReady(init);
 // Game State
 
 var player = new Player();
-var map = baseMap.slice();
+var map = copy(baseMap);
 var startPosition;
+var terrainPattern;
 
 function update(dt) {
     player.update(lastTime);
@@ -78,7 +81,7 @@ function update(dt) {
 }
 
 function render() {
-
+    ctx.fillStyle = terrainPattern;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawMap(map);
     renderEntity(player);
@@ -113,30 +116,37 @@ function drawMap (map) {
                     path = 'images/wall.png';
                     break;
                 case Tile.Empty:
+                    path = false;
+                    break;
                 case Tile.Box:
+                    path = 'images/box_black.png';
+                    break;
                 case Tile.EndPoint:
+                    path = 'images/point_red.png';
+                    break;
                 case Tile.Start:
-                    path = 'images/grass.png';
+                    path = false;
+                    if(!startPosition){
+                        startPosition = [x,y];
+                        player.pos = startPosition.slice();
+                    }
                     break;
                 default:
                     path = false;
             }
             if(path) {
                 ctx.drawImage(resources.get(path), x*tileBaseSize, y*tileBaseSize);
-                switch(type){
-                    case Tile.Box:
-                        ctx.drawImage(resources.get('images/box_black.png'), x*tileBaseSize, y*tileBaseSize);
-                        break;
-                    case Tile.EndPoint:
-                        ctx.drawImage(resources.get('images/point_red.png'),x*tileBaseSize, y*tileBaseSize);
-                        break;
-                    case Tile.Start:
-                        if(!startPosition){
-                            startPosition = [x,y];
-                            player.pos = startPosition.slice();
-                        }
-                }
             }
         }
     }
+}
+
+function copy(o) {
+   var out, v, key;
+   out = Array.isArray(o) ? [] : {};
+   for (key in o) {
+       v = o[key];
+       out[key] = (typeof v === "object") ? copy(v) : v;
+   }
+   return out;
 }
