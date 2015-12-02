@@ -14,9 +14,10 @@
 			this.lastTime = lastTime;
 		},
 		render: function (ctx) {
-			ctx.drawImage(resources.get(this.url),
-				this.pos[0] + this.dir * tileBaseSize, this.pos[1], 
-				tileBaseSize, tileBaseSize, 0, 0, tileBaseSize, tileBaseSize);
+			ctx.save();
+    		ctx.translate(this.pos[0]*tileBaseSize, this.pos[1]*tileBaseSize);
+			ctx.drawImage(resources.get(this.url),this.pos[0] + this.dir * tileBaseSize, this.pos[1],tileBaseSize, tileBaseSize, 0, 0, tileBaseSize, tileBaseSize);
+			ctx.restore();
 		},
 		move: function (dir) {
 			if (this.lastTime < this.wait) return
@@ -24,41 +25,23 @@
 			var xdif = 0;
 			var ydif = 0;
 			switch(dir){
-				case 1:
+				case Direction.Up:
 					ydif = -1;
 					break;	
-				case 2:
+				case Direction.Left:
 					xdif = -1;
 					break;
-				case 3:
+				case Direction.Right:
 					xdif = 1;
 					break;
-				case 0:
+				case Direction.Down:
 					ydif = 1;
 					break;
 			}
+			
+			var canMove = map.move(this, dir, xdif, ydif);
 
-			var _type = map[ this.pos[1] + ydif ][ this.pos[0] + xdif ];
-			var _move = true;
-			switch(_type) {
-				case Tile.Wall:
-					_move = false;
-					break;
-				case Tile.Box:
-					var nextTile = map[ this.pos[1] + ydif * 2 ][ this.pos[0] + xdif * 2 ];
-					var baseFront = baseMap[ this.pos[1] + ydif ][ this.pos[0] + xdif ];
-					if(nextTile === Tile.Empty || nextTile === Tile.EndPoint){
-						if(baseFront === Tile.EndPoint)
-							map[ this.pos[1] + ydif ][ this.pos[0] + xdif ] = Tile.EndPoint;
-						else
-							map[ this.pos[1] + ydif ][ this.pos[0] + xdif ] = Tile.Empty;
-						map[ this.pos[1] + ydif * 2 ][ this.pos[0] + xdif * 2 ] = Tile.Box;
-					} else 
-						_move = false;
-					break;
-
-			}
-			if(_move){
+			if(canMove){
 				this.pos[0] += xdif;
 				this.pos[1] += ydif;
 				this.dir = dir;
