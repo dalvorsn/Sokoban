@@ -63,8 +63,136 @@
 		},
 		level: 3
 	};
-	window.maxLevel = 3;
+	mapArray[4] = {
+		// level 4
+		dataMap: [
+		[4,1,1,1,1,1,1],
+		[1,1,0,0,3,0,1],
+		[1,0,2,0,1,0,1],
+		[1,0,3,2,0,0,1],
+		[1,0,0,1,2,1,1],
+		[1,3,0,5,0,1,4],
+		[1,1,1,1,1,1,4],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 4
+	};
+	mapArray[5] = {
+		// level 5
+		dataMap: [
+		[1,1,1,1,1,4,4,4],
+		[1,0,0,0,1,4,4,4],
+		[1,0,0,0,1,1,1,1],
+		[1,0,0,0,0,0,0,1],
+		[1,1,5,3,1,2,0,1],
+		[1,0,0,0,1,0,0,1],
+		[1,0,0,0,1,1,1,1],
+		[1,1,1,1,1,4,4,4],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 5
+	};
+	mapArray[6] = {
+		// level 6
+		dataMap: [
+		[4,1,1,1,1,1,1],
+		[4,1,0,0,0,0,1],
+		[1,1,2,0,3,0,1],
+		[1,0,0,5,0,0,1],
+		[1,0,2,1,3,0,1],
+		[1,0,0,1,1,1,1],
+		[1,1,1,1,4,4,4],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 6
+	};
+	mapArray[7] = {
+		// level 7
+		dataMap: [
+		[1,1,1,1,4,4],
+		[1,3,0,1,4,4],
+		[1,3,0,1,1,1],
+		[1,5,2,0,0,1],
+		[1,0,2,0,0,1],
+		[1,0,0,1,1,1],
+		[1,1,1,1,4,4],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 7
+	};
+	mapArray[8] = {
+		// level 8
+		dataMap: [
+		[4,1,1,1,1,1,1],
+		[4,1,0,0,0,0,1],
+		[1,1,0,3,3,3,1],
+		[1,0,2,2,2,0,1],
+		[1,0,5,0,1,1,1],
+		[1,1,1,1,1,4,4],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 8
+	};
+	mapArray[9] = {
+		// level 9
+		dataMap: [
+		[1,1,1,1,4,4,4],
+		[1,0,5,1,4,4,4],
+		[1,0,0,1,1,1,1],
+		[1,2,2,2,0,0,1],
+		[1,3,3,3,0,0,1],
+		[1,0,0,1,0,0,1],
+		[1,0,0,1,0,0,1],
+		[1,1,1,1,1,1,1],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 9
+	};
+	mapArray[10] = {
+		// level 10
+		dataMap: [
+		[4,4,1,1,1,1,4,4],
+		[1,1,1,0,0,1,1,1],
+		[1,3,0,2,0,2,0,1],
+		[1,5,1,0,0,1,0,1],
+		[1,0,1,2,3,3,0,1],
+		[1,0,0,0,1,1,1,1],
+		[1,1,1,1,1,4,4,4],
+		],
+		paths: {
+			wall: 'images/wall.png',
+			box: 'images/box_black.png',
+			endPoint: 'images/point_red.png'
+		},
+		level: 10
+	};
+	window.maxLevel = 10;
 	window.getMap = function( lvl ) {
 		return mapArray[Math.min(lvl, maxLevel)];
 	}
 })();
+
