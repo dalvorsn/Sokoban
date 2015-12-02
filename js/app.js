@@ -63,7 +63,7 @@ function inputEvent(dt) {
 		player.move(Direction.Right);
 	}
 	if(input.isDown('ESC'))
-		reset(level);
+		reset(map.level);
 }
 
 function renderScore() {
