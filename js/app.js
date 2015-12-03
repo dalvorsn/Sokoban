@@ -5,6 +5,7 @@ document.body.appendChild(canvas);
 
 var lastTime;
 function main() {
+	
 	var now = Date.now();
 	var dt = (now - lastTime) / 1000.0;
 
@@ -17,9 +18,7 @@ function main() {
 
 function init() {
 
-	map.load();
-
-	player.pos = map.startPosition.slice();
+	reset(map.level);
 
 	lastTime = Date.now();
 	main();
@@ -61,6 +60,8 @@ function inputEvent(dt) {
 		player.move(Direction.Left);
 	} else if(input.isDown('RIGHT') || input.isDown('d')) {
 		player.move(Direction.Right);
+	} else if(input.isDown('SPACE')){
+		player.undoMove();
 	}
 	if(input.isDown('ESC'))
 		reset(map.level);
@@ -72,7 +73,7 @@ function renderScore() {
 	ctx.font = "italic bold 40px/40px purisa, serif";
 	ctx.fillText("Level: " + map.level + "\tSteps: "+player.moves, 10,32);
 	ctx.font = "italic bold 12px/12px purisa, serif";
-	ctx.fillText("Press ESC to reset", 140, 50);
+	ctx.fillText("Press ESC to reset and SPACE to undo moves", 50, 50);
 }
 
 function reset (lvl) {

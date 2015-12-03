@@ -9,7 +9,6 @@
 		this.level = map.level;
 		canvas.width = map.dataMap[0].length * tileBaseSize;
 		canvas.height = map.dataMap.length * tileBaseSize;
-		//debugger;
 	};
 
 	GameMap.prototype = {
