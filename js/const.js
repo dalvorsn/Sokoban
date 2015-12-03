@@ -7,6 +7,7 @@ var Tile = {
 	EndPoint: 3,
 	Away: 4,
 	Start: 5,
+	BoxChecked: 6
 }
 
 var Direction = {
