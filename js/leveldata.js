@@ -13,9 +13,10 @@
 		[1,1,1,1,1,1,1,1],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/ship_wall.png',
+			box: 'images/wooden_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/ship_floor.png'
 		},
 		level: 1
 	};
@@ -35,9 +36,10 @@
 		[4,1,1,1,1,1,1,1,1,1,1,1,1],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/ship_wall.png',
+			box: 'images/wooden_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/ship_floor.png'
 		},
 		level: 2
 	};
@@ -57,9 +59,10 @@
 		[4,4,4,4,1,1,1,1,1,1,1,4,4,4,4,4,4,4,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/ship_wall.png',
+			box: 'images/wooden_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/ship_floor.png'
 		},
 		level: 3
 	};
@@ -75,9 +78,10 @@
 		[1,1,1,1,1,1,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/castle_wall.png',
+			box: 'images/wooden_box_shaded.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/street_floor.png'
 		},
 		level: 4
 	};
@@ -94,9 +98,10 @@
 		[1,1,1,1,1,4,4,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/castle_wall.png',
+			box: 'images/wooden_box_shaded.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/street_floor.png'
 		},
 		level: 5
 	};
@@ -112,9 +117,10 @@
 		[1,1,1,1,4,4,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/castle_wall.png',
+			box: 'images/wooden_box_shaded.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/street_floor.png'
 		},
 		level: 6
 	};
@@ -130,9 +136,10 @@
 		[1,1,1,1,4,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/castle_wall.png',
+			box: 'images/golden_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/street_floor.png'
 		},
 		level: 7
 	};
@@ -147,9 +154,10 @@
 		[1,1,1,1,1,4,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/classic_wall.png',
+			box: 'images/medical_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/ship_floor.png'
 		},
 		level: 8
 	};
@@ -166,9 +174,10 @@
 		[1,1,1,1,1,1,1],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/classic_wall.png',
+			box: 'images/medical_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/ship_floor.png'
 		},
 		level: 9
 	};
@@ -184,9 +193,10 @@
 		[1,1,1,1,1,4,4,4],
 		],
 		paths: {
-			wall: 'images/wall.png',
-			box: 'images/box_black.png',
-			endPoint: 'images/point_red.png'
+			wall: 'images/classic_wall.png',
+			box: 'images/medical_box.png',
+			endPoint: 'images/check_point.png',
+			floor: 'images/ship_floor.png'
 		},
 		level: 10
 	};

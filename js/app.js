@@ -2,6 +2,7 @@ var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 document.body.appendChild(canvas);
 
+(function () {
 
 var lastTime;
 function main() {
@@ -26,10 +27,17 @@ function init() {
 
 resources.load([
 	'images/player.png',
-	'images/grass.png',
-	'images/wall.png',
-	'images/point_red.png',
-	'images/box_black.png'
+	'images/check_point.png',
+	'images/castle_floor.png',
+	'images/ship_floor.png',
+	'images/street_floor.png',
+	'images/castle_wall.png',
+	'images/classic_wall.png',
+	'images/ship_wall.png',
+	'images/medical_box.png',
+	'images/wooden_box_shaded.png',
+	'images/wooden_box.png',
+	'images/golden_box.png'
 ]);
 resources.onReady(init);
 
@@ -84,3 +92,5 @@ function reset (lvl) {
 	player.pos = map.startPosition.slice();
 
 }
+
+})();
