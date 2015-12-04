@@ -2,8 +2,6 @@ var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 document.body.appendChild(canvas);
 
-(function () {
-
 var lastTime;
 function main() {
 	
@@ -92,5 +90,3 @@ function reset (lvl) {
 	player.pos = map.startPosition.slice();
 
 }
-
-})();
